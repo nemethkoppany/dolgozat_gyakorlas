@@ -8,6 +8,4 @@ class Manager{
      * @type {number}
      */
     #currentQuestionNumber
-
-
 }
