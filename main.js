@@ -54,6 +54,7 @@ const array = [
   ];
   const question = new QuestionArea("Question");
   const answer = new AnswerArea("Answer"); 
+  const manager = new Manager("tomb");
 
   const tomb = [];
 
