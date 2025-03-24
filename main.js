@@ -52,12 +52,8 @@ const array = [
       "rightAnswer": "Vörösmarty Mihály"
     }
   ];
-  const manager = new Manager("tomb");
-  const question = new QuestionArea("Question",manager);
-  const answer = new AnswerArea("Answer",manager); 
 
 
-  manager.start();
   const tomb = [];
 
 for(const arr of array){
@@ -65,3 +61,9 @@ for(const arr of array){
     tomb.push(peldany);
 }  
 console.log(tomb);
+
+const manager = new Manager(tomb);
+const question = new QuestionArea("Question",manager);
+const answer = new AnswerArea("Answer",manager); 
+
+manager.start();

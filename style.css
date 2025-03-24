@@ -11,7 +11,7 @@ html, body {
     background-color: #333;
     flex-direction: column;
   }
-  .question{
+  .Question{
     border: 1px solid white;
     padding: 2px;
     color: white;
@@ -19,7 +19,7 @@ html, body {
     margin-bottom: 20px;
   }
   
-  .answer-area{
+  .Answer{
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 
