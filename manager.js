@@ -66,8 +66,8 @@ class Manager{
         }
         else{
             let counter = 0;
-            for(const arr of array){
-                if(this.#array[arr].righAnswer === this.#selectedAnswer[arr]){
+            for(const arr of this.#array){
+                if(this.#array[arr].rightAnswer === this.#selectedAnswer[arr]){
                     counter++;
                 }
             }

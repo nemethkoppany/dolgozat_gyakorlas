@@ -18,6 +18,12 @@ class Area{
         this.#div.className = cssClass;
         container.appendChild(this.#div);
         this.#manager = manager;
+        manager.setFinishCallback((result) => {
+            container.innerHTML = "";
+            const divver = document.createElement("div");
+            divver.textContent = result;
+            container.appendChild(divver);
+        });
     }
 
     get manager(){
@@ -60,6 +66,10 @@ class AnswerArea extends Area{
                 divverino.className= "item";
                 divverino.innerHTML = index;
                 this.div.appendChild(divverino);
+                divverino.addEventListener("click", () => {//Ez az addEventListener még kérdéses //Talán a 64-esig megvan
+                    this.div.appendChild(divverino);
+                    manager.nextQuestion(index);
+                })
             }
         });
 
