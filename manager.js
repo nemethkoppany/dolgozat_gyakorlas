@@ -60,9 +60,9 @@ class Manager{
         this.#selectedAnswer[this.#currentQuestionNumber] = answer;
         this.#currentQuestionNumber++;
 
-        if(this.#currentQuestionNumber >= this.#array.length){
-            this.#nextQuestionCallback(this.#array[this.#currentQuestionNumber].questionText);
-            this.#nextAnswersCallback(this.#array[this.#currentQuestionNumber].answer);
+        if(this.#currentQuestionNumber < this.#array.length){
+            this.#nextQuestionCallback(this.#array[this.#currentQuestionNumber].getQuestionText);
+            this.#nextAnswersCallback(this.#array[this.#currentQuestionNumber].getAnswers);
         }
         else{
             let counter = 0;
@@ -77,7 +77,7 @@ class Manager{
 
     //Ez lehet, hogy nem jó
     start(){
-        this.#nextQuestionCallback(this.#array[0].questionText);
-        this.#nextAnswersCallback(this.#array[0].answer);
+        this.#nextQuestionCallback(this.#array[0].getQuestionText);
+        this.#nextAnswersCallback(this.#array[0].getAnswers);
     }
 }

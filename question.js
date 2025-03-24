@@ -7,7 +7,7 @@ class Question{
      * @type {string} 
      */
     #answers
-    /**
+     /**
      * @type {string[]}
      */
     #rightAnswer

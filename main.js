@@ -52,10 +52,12 @@ const array = [
       "rightAnswer": "Vörösmarty Mihály"
     }
   ];
-  const question = new QuestionArea("Question");
-  const answer = new AnswerArea("Answer"); 
   const manager = new Manager("tomb");
+  const question = new QuestionArea("Question",manager);
+  const answer = new AnswerArea("Answer",manager); 
 
+
+  manager.start();
   const tomb = [];
 
 for(const arr of array){

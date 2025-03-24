@@ -4,14 +4,24 @@ class Area{
      */
     #div
     /**
+     * @type {Manager}
+    */
+        #manager
+    
+    /**
      * 
      * @param {string} cssClass 
      */
-    constructor(cssClass){
+    constructor(cssClass, manager){
         const container = this.#getContainer();
         this.#div = document.createElement("div")
         this.#div.className = cssClass;
         container.appendChild(this.#div);
+        this.#manager = manager;
+    }
+
+    get manager(){
+        return this.#manager;
     }
 
     /**
@@ -31,23 +41,44 @@ class Area{
     get div(){
         return this.#div;
     }
+
+
 }
 
 class AnswerArea extends Area{
     /**
      * 
      * @param {string} cssClass 
+     * @param {Manager} manager
      */
-    constructor(cssClass){
-        super(cssClass);
+    constructor(cssClass,manager){
+        super(cssClass,manager);
+        manager.setNextAnswersCallback((answer) => {
+            this.div.innerHTML = "";
+            for(const index of answer){
+                const divverino = document.createElement("div");
+                divverino.className= "item";
+                divverino.innerHTML = index;
+                this.div.appendChild(divverino);
+            }
+        });
+
     }
 }
 class QuestionArea extends Area{
     /**
      * 
      * @param {string} cssClass 
+     * @param {Manager} manager
      */
-    constructor(cssClass){
-        super(cssClass);
+    constructor(cssClass,manager){
+        super(cssClass,manager);
+        manager.setNextQuestionCallback((questionText) => {
+            this.div.innerHTML = "";
+                const divverino = document.createElement("div"); 
+                divverino.innerHTML = questionText;
+                this.div.appendChild(divverino);     
+        });
+        
     }
 }
